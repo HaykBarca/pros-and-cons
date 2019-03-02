@@ -1,0 +1,23 @@
+<div class="container">
+  <mat-spinner *ngIf="inProgress" color="accent"></mat-spinner>
+  <div class="centered-form" *ngIf="!inProgress">
+    <form [formGroup]="form" (ngSubmit)="onLogin()">
+        <h3>Pro’s & Con’s</h3>
+
+        <mat-form-field>
+          <input matInput placeholder="Group Id" formControlName="groupId">
+          <mat-error *ngIf="form.get('groupId').invalid">Please input Group Id.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="User Id" formControlName="userId">
+          <mat-error *ngIf="form.get('userId').invalid">Please input User Id</mat-error>
+        </mat-form-field>
+
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary">Login</button>
+    </form>
+  </div>
+</div>

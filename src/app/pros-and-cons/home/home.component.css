@@ -1,0 +1,95 @@
+mat-card {
+    margin: 5px;
+    background-color: transparent;
+}
+
+mat-spinner {
+    margin: 0 auto;
+}
+
+.container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, #5b60b5, #4fc2d8, #ed6a5a, #5b60b5, #4fc2d8);
+    background-size: 1000% 1000%;
+    -webkit-animation: AnimationName 60s linear infinite;
+    animation: AnimationName 60s linear infinite;
+}
+
+.container .centered-form {
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+    height: 95vh;
+    max-height: 1000px;
+    background: rgba(250, 250, 250, 0.9);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(225, 225, 225);
+    -o-border-image: initial;
+    border-image: initial;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+}
+
+.container .centered-form .half-block {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
+    margin: 2px;
+    border: 1px solid #5b60b5;
+}
+
+.container .centered-form .half-block h2 {
+    text-align: center;
+    margin: 0;
+}
+
+.container mat-card.body {
+    flex: 1 1 auto;
+    overflow: auto;
+}
+
+.container mat-card.body button {
+    font-size: 24px;
+}
+
+.container mat-card.body .item {
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+
+.container mat-card.footer form {
+    display: flex;
+    height: 50px;
+    align-items: center;
+}
+
+.container mat-card.footer mat-form-field {
+    flex-basis: 100%;
+    margin-right: 20px;
+}
+
+.container mat-card.footer button.submit {
+    font-size: 20px;
+}
+
+/* medias */
+@media screen and (max-width: 768px) {
+    .container .centered-form {
+        flex-direction: column;
+    }
+
+    .container .centered-form .half-block h2 {
+        font-size: 16px;
+    }
+
+    mat-card {
+        padding: 5px;
+    }
+}

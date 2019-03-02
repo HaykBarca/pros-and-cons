@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: -webkit-gradient(linear, left top, right top, from(#5b60b5), color-stop(#4fc2d8), color-stop(#ed6a5a), color-stop(#5b60b5), to(#4fc2d8));
+    background: -webkit-linear-gradient(left, #5b60b5, #4fc2d8, #ed6a5a, #5b60b5, #4fc2d8);
+    background: -o-linear-gradient(left, #5b60b5, #4fc2d8, #ed6a5a, #5b60b5, #4fc2d8);
+    background: linear-gradient(90deg, #5b60b5, #4fc2d8, #ed6a5a, #5b60b5, #4fc2d8);
+    background-size: 1000% 1000%;
+    -webkit-animation: AnimationName 60s linear infinite;
+    animation: AnimationName 60s linear infinite;
+}
+
+.container .centered-form {
+    width: 230px;
+    background: rgba(250, 250, 250, 0.9);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(225, 225, 225);
+    border-image: initial;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+}
+ 
+button {
+    width: 100%;
+    margin-top: 20px;
+}
+
+h3 {
+    text-align: center;
+}
