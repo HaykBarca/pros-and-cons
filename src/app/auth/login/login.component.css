@@ -33,3 +33,19 @@ button {
 h3 {
     text-align: center;
 }
+
+/* Animation */
+@keyframes AnimationName {
+    0% {
+        background-position: 0% 22%;
+    }
+
+
+    50% {
+        background-position: 100% 79%;
+    }
+
+    100% {
+        background-position: 0% 22%;
+    }
+}

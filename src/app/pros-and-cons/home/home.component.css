@@ -19,6 +19,17 @@ mat-spinner {
     animation: AnimationName 60s linear infinite;
 }
 
+.container .logout_button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 5px;
+}
+
+.container .logout_button mat-icon {
+    font-size: 21px;
+}
+
 .container .centered-form {
     display: flex;
     width: 100%;
@@ -54,6 +65,14 @@ mat-spinner {
     overflow: auto;
 }
 
+.container mat-card.body .info {
+    position: absolute;
+    font-size: 8px;
+    bottom: 0;
+    left: 0;
+    margin: 5px;
+}
+
 .container mat-card.body button {
     font-size: 24px;
 }
@@ -77,6 +96,22 @@ mat-spinner {
 
 .container mat-card.footer button.submit {
     font-size: 20px;
+}
+
+/* Animation */
+@keyframes AnimationName {
+    0% {
+        background-position: 0% 22%;
+    }
+
+
+    50% {
+        background-position: 100% 79%;
+    }
+
+    100% {
+        background-position: 0% 22%;
+    }
 }
 
 /* medias */

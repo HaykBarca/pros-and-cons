@@ -6,6 +6,7 @@ import { LoginComponent } from './auth/login/login.component';
 
 const routes: Routes = [
     { path: '', component: LoginComponent },
+    { path: '**', redirectTo: '/' },
     { path: '', loadChildren: './pros-and-cons/pros-and-cons.module#ProsAndConsModule' }
 ];
 

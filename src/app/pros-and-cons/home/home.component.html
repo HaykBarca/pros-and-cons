@@ -1,4 +1,5 @@
 <div class="container">
+  <button mat-mini-fab color="warn" class="logout_button" (click)="onLogOut()"><mat-icon>power_settings_new</mat-icon></button>
   <mat-spinner *ngIf="!prosAndCons" color="accent"></mat-spinner>
   <div class="centered-form" *ngIf="prosAndCons">
     <div id="pros" class="half-block">
@@ -12,6 +13,7 @@
           <mat-card *ngFor="let pro of prosAndCons.pros; let i = index" class="item" (click)="onUpPro(pro, i)">
             <span>{{ pro }}</span>
             <button mat-mini-fab color="warn" (click)="onDeletePro(i)">-</button>
+            <span class="info">*click on item will activate update mode</span>
           </mat-card>
         </div>
       </mat-card>
@@ -20,7 +22,7 @@
         <form [formGroup]="formPros" (ngSubmit)="onAddPro()">
           <mat-form-field>
             <input matInput placeholder="New Pro's" formControlName="pros">
-            <mat-error *ngIf="this.formPros.get('pros').invalid">Please input Pro's</mat-error>
+            <mat-error *ngIf="formPros.get('pros').invalid">Please input Pro's</mat-error>
           </mat-form-field>
           <button mat-mini-fab color="primary" type="submit" class="submit">+</button>
         </form>
@@ -39,6 +41,7 @@
           <mat-card *ngFor="let con of prosAndCons.cons; let i = index" class="item" (click)="onUpCon(con, i)">
             <span>{{ con }}</span>
             <button mat-mini-fab color="warn" (click)="onDeleteCon(i)">-</button>
+            <span class="info">*click on item will activate update mode</span>
           </mat-card>
         </div>
       </mat-card>
@@ -47,7 +50,7 @@
         <form [formGroup]="formCons" (ngSubmit)="onAddCon()">
           <mat-form-field>
             <input matInput placeholder="New Con's" formControlName="cons">
-            <mat-error *ngIf="this.formCons.get('cons').invalid">Please input Con's</mat-error>
+            <mat-error *ngIf="formCons.get('cons').invalid">Please input Con's</mat-error>
           </mat-form-field>
           <button mat-mini-fab color="primary" type="submit" class="submit">+</button>
         </form>

@@ -16,6 +16,8 @@ const BACKEND_URL = function (groupId, userId) {
 export class AuthService {
     private isAuthenticated = false;
     private userAuthenSubject = new Subject<boolean>();
+    private groupId: string;
+    private userId: string;
 
     constructor(private httpClient: HttpClient, private router: Router) {}
 
@@ -27,14 +29,14 @@ export class AuthService {
         return this.isAuthenticated;
     }
 
-    loginUser(groupId: string, userId: string) {
-        this.httpClient.get<ProsAndCons>(BACKEND_URL(groupId, userId))
+    loginUser(authData: AuthData) {
+        this.httpClient.get<ProsAndCons>(BACKEND_URL(authData.groupId, authData.userId))
             .subscribe(
                 (data) => {
                     if (data) {
                         this.isAuthenticated = true;
                         this.userAuthenSubject.next(true);
-                        this.saveDataInLocalStorage(groupId, userId);
+                        this.saveDataInLocalStorage(authData.groupId, authData.userId);
                         this.router.navigate(['/home']);
                     }
                 },
@@ -47,18 +49,19 @@ export class AuthService {
     logoutUser() {
         this.isAuthenticated = false;
         this.userAuthenSubject.next(false);
-        this.removeTokenFromLocalStorage();
+        this.removeDataFromLocalStorage();
         this.router.navigate(['/']);
     }
 
     autoAuth() {
-        // const authInfo = this.getAuthData();
+        const authInfo = this.getAuthData();
 
-        // if (authInfo) {
-        //     this.token = authInfo.token;
-        //     this.isAuthenticated = true;
-        //     this.userAuthenSubject.next(true);
-        // }
+        if (authInfo) {
+            this.groupId = authInfo.groupId;
+            this.userId = authInfo.userId;
+            this.isAuthenticated = true;
+            this.userAuthenSubject.next(true);
+        }
     }
 
     private saveDataInLocalStorage(groupId: string, userId: string) {
@@ -66,7 +69,7 @@ export class AuthService {
         localStorage.setItem('userId', userId);
     }
 
-    private removeTokenFromLocalStorage() {
+    private removeDataFromLocalStorage() {
         localStorage.removeItem('groupId');
         localStorage.removeItem('userId');
     }

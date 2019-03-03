@@ -1,4 +1,4 @@
 export interface ProsAndCons {
-    cons: string[],
-    pros: string[]
+    cons: string[];
+    pros: string[];
 }
